@@ -60,6 +60,7 @@ public class matrices{
         //     }
         // }
 
+
         // //output        
         // for(int i=0; i<n; i++){
         //     for(int j=0; j<m; j++){
@@ -75,5 +76,15 @@ public class matrices{
                             {9,10,11,12},
                             {13,14,15,16}};
         // spiralMatrix(matrix);
+
+        //output of matrix 
+        for(int i=0; i<n; i++){
+            for(int j=0; j<m; j++){
+                System.out.print(matrix[i][j]+ " ");
+                }
+                System.out.println();
+            }            
+            search(matrix,5);
+
         }        
     }
