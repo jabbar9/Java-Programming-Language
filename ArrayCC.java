@@ -33,7 +33,7 @@ public class ArrayCC {
 
         while( start<=end ) {
             int mid = ( start + end) / 2;
-            if(numbers[mid] == key){ //found - directly certer
+            if(numbers[mid] == key){ //found - directly center
                 return mid;
             }
             if(numbers[mid] < key){
@@ -72,7 +72,7 @@ public class ArrayCC {
     }
 
     public static void subArrays(int numbers[]){
-        int ts = 0;        
+        int ts = 0;
         for(int i=0; i<numbers.length; i++){
             int start = i;
             for(int j=i; j<numbers.length; j++){
@@ -208,8 +208,8 @@ public class ArrayCC {
     // printPairs(numbers);
 
     //Print Sub Arrays
-    // int numbers[] = {2,4,6,8,10};
-    // subArrays(numbers);
+    int numbers[] = {2,4,6,8,10};
+    subArrays(numbers);
 
     //Print Maximum Value from all sub array value using Brute Force Method
     // int numbers[] = {1-2,6,-1,3};
@@ -224,9 +224,7 @@ public class ArrayCC {
     // kadanes(numbers);
 
     //Buy and Sell Stocks using Arrays
-    int prices[] = {7,1,5,3,6,4};
-    System.out.println(buyAndSellStocks(prices));
+    // int prices[] = {7,1,5,3,6,4};
+    // System.out.println(buyAndSellStocks(prices));
     }
 }
-
-//https://www.cloudskillsboost.google/public_profiles/5c5c3a68-434a-4fb8-87b7-261da9c34b6an
