@@ -50,6 +50,50 @@ public class matrices{
         }
         System.out.println();
     }
+
+    public static int diagonalSum(int matrix[][]){
+        // int sum = 0;
+        // for(int i=0; i<matrix.length; i++){
+        //     for(int j=0; j<matrix[0].length; j++){
+        //         if(i == j){
+        //             sum = sum+matrix[i][j];
+        //         } else if(i+j == matrix.length-1){
+        //             sum = sum+matrix[i][j];
+        //         }
+        //     }
+        // }
+        // return sum;
+
+        //linear Approach With minimum time and space complexity
+        int sum = 0;
+        for(int i=0; i<matrix.length; i++){
+            //Primary Diagonal
+            sum += matrix[i][i];
+            //Secondary Diagonal
+            if( i != matrix.length-i-1){
+               sum += matrix[i][matrix.length-i-1];
+            }
+        }
+        return sum;
+    }
+
+    public static boolean staircaseSearch(int matrix[][], int key){
+        int row = 0, col = matrix[0].length-1;
+
+        while( row<=matrix.length && col>=0){
+            if(matrix[row][col] == key){
+                System.out.println("Found Key at ( "+row+ ","+col+ " )");
+                return true;                
+            } else if(key<matrix[row][col]){
+                col--;
+            } else {
+                row++;
+            }
+        }
+        System.out.println("Key not found");
+        return false;
+    }
+    
     public static void main(String args[]){
         // int matrix[][] = new int[3][3];
         // int n = matrix.length, m = matrix[0].length;        
@@ -71,20 +115,25 @@ public class matrices{
         //     search(matrix,5);
 
         //Spiral Matrix Code
-        int matrix[][] = {{1,2,3,4},
-                            {5,6,7,8},
-                            {9,10,11,12},
-                            {13,14,15,16}};
+        // int matrix[][] = {{1,2,3,4},
+        //                     {5,6,7,8},
+        //                     {9,10,11,12},
+        //                     {13,14,15,16}};
         // spiralMatrix(matrix);
 
-        //output of matrix 
-        for(int i=0; i<n; i++){
-            for(int j=0; j<m; j++){
-                System.out.print(matrix[i][j]+ " ");
-                }
-                System.out.println();
-            }            
-            search(matrix,5);
+        //Diagonal Sum
+        // int matrix[][] = {{1,2,3,4},
+        //                     {5,6,7,8},
+        //                     {9,10,11,12},
+        //                     {13,14,15,16}};
+        // System.out.println(diagonalSum(matrix));
 
+        //Search a Key in Sorted Matrix
+        int matrix[][] = {{10,20,30,40},
+        {15,25,35,45},
+        {27,29,37,48},
+        {32,33,39,50}};
+        int key = 33;
+        staircaseSearch(matrix,key);
         }        
     }
