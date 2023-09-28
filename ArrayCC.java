@@ -208,16 +208,16 @@ public class ArrayCC {
     // printPairs(numbers);
 
     //Print Sub Arrays
-    int numbers[] = {2,4,6,8,10};
-    subArrays(numbers);
+    // int numbers[] = {2,4,6,8,10};
+    // subArrays(numbers);
 
     //Print Maximum Value from all sub array value using Brute Force Method
     // int numbers[] = {1-2,6,-1,3};
     // maxSubArrays(numbers);
     
     //Print Maximum Value from all sub array value using Prefix Sum Method
-    // int numbers[] = {1-2,6,-1,3};
-    // prefixArraySum(numbers);
+    int numbers[] = {1-2,6,-1,3};
+    prefixArraySum(numbers);
 
     //Print Maximum Sub array using kadanes method
     // int numbers[] = {-2,-3,4,-1,-2,1,5,-3};
