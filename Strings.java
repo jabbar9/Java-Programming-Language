@@ -6,7 +6,6 @@ public class Strings {
         }
         System.out.println();
     }
-// Changes made Successfully
     public static boolean isPalindrome(String str){
         for(int i=0; i<str.length()/2; i++){
             int n = str.length();
@@ -16,6 +15,39 @@ public class Strings {
             }            
         }
         return true;
+    }
+    public static float getShortestPath(String path){
+        int x = 0, y = 0;
+
+        for(int i=0;i<path.length(); i++){
+            char dir = path.charAt(i);
+            //South
+            if(dir == 'S'){
+                y--;
+            }
+            //North
+             else if(dir == 'N'){
+                y++;
+            }
+            //West
+             else if(dir == 'W'){
+                x--;
+            }
+            //East
+             else {
+                x++;
+            }
+        }
+        int X2 = x*x;
+        int Y2 = y*y;
+        return (float)Math.sqrt(X2 + Y2);
+    }
+    public static String subString(String str, int si, int ei){
+        String substr = "";
+        for(int i=si; i<ei; i++){
+            substr += str.charAt(i);
+        }
+        return substr;
     }
     public static void main(String args[]){
         // char arr[] = {'a','b','c','d'};
@@ -46,7 +78,56 @@ public class Strings {
         // printLetters(fullName);
 
         //Palindrome or not
-        String str = "racecar";
-        System.out.println(isPalindrome(str));
+        // String str = "racecar";
+        // System.out.println(isPalindrome(str));
+
+        //Shortest Path wiith directions
+        // String path = "WNEENESENNN";
+        // System.out.println(getShortestPath(path));
+
+        //Strings Compare
+        // String str1 = "Jack";
+        // String str2 = "Jack";
+        // String str3 = new String("Jack");
+
+        // if(str1 == str2){
+        //     System.out.println("Strings are Equals");
+        // } else {
+        //     System.out.println("Strings are not Equals");
+        // }
+
+        // if(str1 == str3){
+        //     System.out.println("Strings are Equals");
+        // } else {
+        //     System.out.println("Strings are not Equals");
+        // }
+
+        // if(str1.equals(str3)){
+        //     System.out.println("Strings are equals");
+        // } else {
+        //     System.out.println("Strings are not equlas");
+        // }
+
+        //Printing Substring
+        // String str = "HelloWorld";
+        // System.out.println(str.substring(0, 4));
+        // System.out.println(subString(str, 0, 5));
+
+        //Print largest String
+        // String fruits[] = {"apple", "mango", "banana"};
+        // String largest = fruits[0];
+        // for(int i=1; i<fruits.length; i++){
+        //     if(largest.compareTo(fruits[i]) < 0){
+        //         largest = fruits[i];
+        //     }
+        // }
+        // System.out.println(largest);
+
+        //String Builder in Java
+        StringBuilder sb = new StringBuilder("");
+        for(char ch='a'; ch<='z'; ch++){
+            sb.append(ch);
+        }
+        System.out.println(sb);
     }
 }
