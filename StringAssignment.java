@@ -45,6 +45,6 @@ public class StringAssignment{
             }
         } else {
             System.out.println(str1 + " and " +str2+ "are not anagrams of each others");
-        }
+        }        
     }
 }
