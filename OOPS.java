@@ -49,6 +49,7 @@ public class OOPS {
         System.out.println(s3.schoolName);
     }
 }
+// Commented code below
 // class Student{
     // String name;
     // int roll;
