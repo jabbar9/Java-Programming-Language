@@ -26,10 +26,10 @@ public class condition {
         // int n = 10899;
         // int rev = 0;
 
-        // while(n > 0){
+        // while( n > 0){
         //     int lastDigit = n % 10;
         //     rev = (rev * 10) + lastDigit;
-        //     n /=10;            
+        //     n = n/10;
         // }
         // System.out.println(rev);
 
@@ -38,20 +38,19 @@ public class condition {
         int n = sc.nextInt();
 
         if(n == 2){
-            System.out.println("N is Prime");
+            System.out.println("No. is prime");
         } else {
             boolean isPrime = true;
-            for(int i=2; i<=Math.sqrt(n); i++){
-                if(n % i ==0){ //n is a multiple of i (i not equal to 1 or n)
+            for(int i = 2; i<=Math.sqrt(n); i++){
+                if(n % i == 0){
                     isPrime = false;
                 }
             }
-
             if(isPrime == true){
-                System.out.println("N is Prime");
-            } else {
-                System.out.println("N is not a Prime");
+                System.out.println("No. is Even");
+            } else{
+                System.out.println("No. is Odd");
             }
-            }
+        }
     }
 }

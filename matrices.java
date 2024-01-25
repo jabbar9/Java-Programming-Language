@@ -52,45 +52,42 @@ public class matrices{
     }
 
     public static int diagonalSum(int matrix[][]){
-        // int sum = 0;
+        int sum = 0;
         // for(int i=0; i<matrix.length; i++){
         //     for(int j=0; j<matrix[0].length; j++){
+        //         //Primary diagonal
         //         if(i == j){
-        //             sum = sum+matrix[i][j];
+        //             sum += matrix[i][j];
         //         } else if(i+j == matrix.length-1){
-        //             sum = sum+matrix[i][j];
+        //             sum += matrix[i][j];
         //         }
         //     }
         // }
-        // return sum;
 
-        //linear Approach With minimum time and space complexity
-        int sum = 0;
+        //Linear approach with limited time and space complexity
         for(int i=0; i<matrix.length; i++){
-            //Primary Diagonal
+            //primary Diagonal
             sum += matrix[i][i];
+
             //Secondary Diagonal
-            if( i != matrix.length-i-1){
-               sum += matrix[i][matrix.length-i-1];
-            }
+            sum += matrix[i][matrix.length-i-1];
         }
         return sum;
     }
 
     public static boolean staircaseSearch(int matrix[][], int key){
-        int row = 0, col = matrix[0].length-1;
+        int row = 0, col = matrix[0].length;
 
-        while( row<=matrix.length && col>=0){
+        while(row < matrix.length && col >= 0){
             if(matrix[row][col] == key){
-                System.out.println("Found Key at ( "+row+ ","+col+ " )");
-                return true;                
-            } else if(key<matrix[row][col]){
+                System.out.println("Key Found at (" +row+ "," +col+ ")");
+            } else if(key < matrix[row][col]){
                 col--;
             } else {
                 row++;
             }
         }
-        System.out.println("Key not found");
+        System.out.println("Key Not Found");
         return false;
     }
     
@@ -137,3 +134,17 @@ public class matrices{
         staircaseSearch(matrix,key);
         }        
     }
+// int row = 0, col = matrix[0].length-1;
+
+//         while( row<=matrix.length && col>=0){
+//             if(matrix[row][col] == key){
+//                 System.out.println("Found Key at ( "+row+ ","+col+ " )");
+//                 return true;                
+//             } else if(key<matrix[row][col]){
+//                 col--;
+//             } else {
+//                 row++;
+//             }
+//         }
+//         System.out.println("Key not found");
+//         return false;

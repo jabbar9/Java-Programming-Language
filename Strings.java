@@ -9,32 +9,29 @@ public class Strings {
     public static boolean isPalindrome(String str){
         for(int i=0; i<str.length()/2; i++){
             int n = str.length();
-            if(str.charAt(i) != str.charAt(n-1-i)){
+            if(str.charAt(i) != str.charAt(n-i-1)){
                 //Not a Palindrome
                 return false;
-            }            
+            }
         }
         return true;
     }
     public static float getShortestPath(String path){
         int x = 0, y = 0;
 
-        for(int i=0;i<path.length(); i++){
+        for(int i=0; i<path.length(); i++){
             char dir = path.charAt(i);
-            //South
+
             if(dir == 'S'){
+                //South
                 y--;
-            }
-            //North
-             else if(dir == 'N'){
+            } else if(dir == 'N'){
+                //North
                 y++;
-            }
-            //West
-             else if(dir == 'W'){
-                x--;
-            }
-            //East
-             else {
+            } else if(dir == 'W'){
+                //West
+                x--;            
+            } else{
                 x++;
             }
         }
@@ -49,6 +46,7 @@ public class Strings {
         }
         return substr;
     }
+
     public static String toUpperCase(String str){
         StringBuilder sb = new StringBuilder("");
 
@@ -59,13 +57,14 @@ public class Strings {
                 sb.append(str.charAt(i));
                 i++;
                 sb.append(Character.toUpperCase(str.charAt(i)));
-            } else{
+            } else {
                 sb.append(str.charAt(i));
             }
         }
         return sb.toString();
     }
-    public static String compression(String str){
+
+    public static String compress(String str){
         StringBuilder sb = new StringBuilder("");
 
         for(int i=0; i<str.length(); i++){
@@ -77,7 +76,7 @@ public class Strings {
             sb.append(str.charAt(i));
             if(count > 1){
                 sb.append(count.toString());
-            }
+            }            
         }
         return sb.toString();
     }
@@ -111,7 +110,7 @@ public class Strings {
 
         //Palindrome or not
         // String str = "racecar";
-        // System.out.println(isPalindrome(str));
+        // System.out.println(isPalindrome(str));        
 
         //Shortest Path wiith directions
         // String path = "WNEENESENNN";
@@ -158,7 +157,7 @@ public class Strings {
         //String Builder in Java
         // StringBuilder sb = new StringBuilder("");
         // for(char ch='a'; ch<='z'; ch++){
-        //     sb.append(ch);
+        //     sb.append(ch +" ");
         // }
         // System.out.println(sb);
 
@@ -167,8 +166,8 @@ public class Strings {
         // System.out.println(toUpperCase(str));
 
         //String Compression
-        // String str = "aaabbcccdd";
-        // System.out.println(compression(str));
+        String str = "aaabbcccdd";
+        System.out.println(compress(str));
     }
 }
 

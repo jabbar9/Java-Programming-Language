@@ -87,6 +87,7 @@ public class ArrayCC {
         }
         System.out.println("Total Subarrays:- "+ts);        
     }
+    
 
     public static void maxSubArrays(int numbers[]){
         int currSum = 0;
@@ -115,8 +116,8 @@ public class ArrayCC {
         int maxSum = Integer.MIN_VALUE;
         int prefix[] = new int[numbers.length];
 
-        prefix[0] = numbers[0];
         //Calculate Prefix Array
+        prefix[0] = numbers[0];
         for(int i=1; i<prefix.length; i++){
             prefix[i] = prefix[i-1] + numbers[i];
         }
@@ -125,8 +126,7 @@ public class ArrayCC {
             int start = i;
             for(int j=i; j<numbers.length; j++){
                 int end = j;
-                currSum = start == 0 ? prefix[end] : prefix[end] - prefix[start -1];
-                
+                currSum = start == 0 ? prefix[end] : prefix[end] - prefix[start-1];
                 if(maxSum < currSum){
                     maxSum = currSum;
                 }
@@ -136,17 +136,17 @@ public class ArrayCC {
     }
 
     public static void kadanes(int numbers[]){
-        int cs = 0;
         int ms = Integer.MIN_VALUE;
+        int cs = 0;
 
         for(int i=0; i<numbers.length; i++){
             cs = cs + numbers[i];
             if(cs < 0){
                 cs = 0;
             }
-            ms = Math.max(cs, ms);
+            ms = Math.max(cs, ms);        
         }
-        System.out.println("Our Maximum Sub array sum is:-" +ms);
+        System.out.println("Our Maximum Sub Array Sum is:-" +ms);
     }
 
     public static int buyAndSellStocks(int prices[]){
@@ -154,8 +154,8 @@ public class ArrayCC {
         int maxProfit = 0;
 
         for(int i=0; i<prices.length; i++){
-            if(buyPrices < prices[i]){  //profit
-                int profit = prices[i] - buyPrices; //Todays Profit
+            if(buyPrices < prices[i]){
+                int profit = prices[i] - buyPrices;
                 maxProfit = Math.max(maxProfit, profit);
             } else {
                 buyPrices = prices[i];
@@ -216,15 +216,15 @@ public class ArrayCC {
     // maxSubArrays(numbers);
     
     //Print Maximum Value from all sub array value using Prefix Sum Method
-    int numbers[] = {1-2,6,-1,3};
-    prefixArraySum(numbers);
+    // int numbers[] = {1-2,6,-1,3};
+    // prefixArraySum(numbers);
 
     //Print Maximum Sub array using kadanes method
     // int numbers[] = {-2,-3,4,-1,-2,1,5,-3};
     // kadanes(numbers);
 
     //Buy and Sell Stocks using Arrays
-    // int prices[] = {7,1,5,3,6,4};
-    // System.out.println(buyAndSellStocks(prices));
+    int prices[] = {7,1,5,3,6,4};
+    System.out.println(buyAndSellStocks(prices));
     }
 }
