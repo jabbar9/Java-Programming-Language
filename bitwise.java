@@ -1,17 +1,17 @@
 public class bitwise {
     public static void oddOrEven(int n){
         int bitMask = 1;
-        if((n & bitMask) == 0){
+        if((n & bitMask) == 0) {
             //Even Number
-            System.out.println("Even Number");
-        } else {
-            System.out.println("Odd Number");
+            System.out.println("Number is even");
+        } else{
+            System.out.println("Number is Odd");
         }
     }
     public static int getIthBit(int n, int i){
         int bitMask = 1<<i;
         if((n & bitMask) == 0){
-            return 0;
+            return 0;        
         } else {
             return 1;
         }
@@ -35,13 +35,14 @@ public class bitwise {
         int newBitMask = newBit<<i;
         return n | newBitMask;
     }
-    public static int clearIBits(int n, int i){
-        int bitMask = (~0)<<i;
+    public static int clearIBits(int n,int i){
+        int bitMask = ~(0)<<i;
         return n & bitMask;
     }
-    public static int clearRangeOfBits(int n, int i,int j){
-        int a = ((~0)<<(j+1));
+    public static int clearRangeOfBits(int n, int i, int j){
+        int a = ~(0)<<(j+1);
         int b = (1<<i)-1;
+
         int bitMask = a | b;
         return n & bitMask;
     }
@@ -58,8 +59,8 @@ public class bitwise {
     public static int countSetBits(int n){
         int count = 0;
         while(n > 0){
-            if((n & 1) != 0){
-                count++;
+            if((n & 1) != 0){ //Check LSB
+                count++;                
             }
             n = n>>1;
         }
@@ -67,12 +68,11 @@ public class bitwise {
     }
     public static int fastExpo(int a, int n){
         int ans = 1;
-
         while(n > 0){
-            if((n & 1) != 0){ //Check LSB
+            if((n & 1) != 0){
                 ans = ans * a;
             }
-            a = a *a;
+            a = a * a;
             n = n>>1;
         }
         return ans;
@@ -94,7 +94,7 @@ public class bitwise {
     public static void main(String args[]){
         // System.out.println(5 & 6); //Binary AND
         // System.out.println(5 | 6); //Binary OR
-        System.out.println(3 ^ 4); //Binary XOR
+        // System.out.println(3 ^ 4); //Binary XOR
 
         //Binary One's Compliment
         // System.out.println((~5));

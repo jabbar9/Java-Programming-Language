@@ -178,6 +178,6 @@ public class pattern2{
         // butterfly(5);
         // solid_rhombus(5);
         // hollow_rhombus(5);
-        diamond(5);
+        // diamond(5);
     }
 }
