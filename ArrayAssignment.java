@@ -1,5 +1,5 @@
 public class ArrayAssignment {
-
+// awdjnas
     public static int firstQuestion(int nums[]){
         for(int i=0; i<nums.length; i++){
             int start = i;
