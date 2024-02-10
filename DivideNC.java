@@ -121,14 +121,14 @@ public class DivideNC {
         // printArr(arr);
 
         //Quick Sort Code
-        // int arr[] = {6,3,9,8,2,5};
-        // quickSort(arr, 0, arr.length-1);
-        // printArr(arr);
+        int arr[] = {6,3,9,8,2,5};
+        quickSort(arr, 0, arr.length-1);
+        printArr(arr);
 
         //Search in Rotated Sorted Array
-        int arr[] = {4,5,6,7,0,1,2};
-        int target = 0;  //Output  --> 4
-        int Idx = search(arr, target, 0, arr.length-1);
-        System.out.println(Idx);
+        // int arr[] = {4,5,6,7,0,1,2};
+        // int target = 0;  //Output  --> 4
+        // int Idx = search(arr, target, 0, arr.length-1);
+        // System.out.println(Idx);
     }
 }
