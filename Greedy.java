@@ -135,33 +135,71 @@ public class Greedy {
         // System.out.println();
 
         //Job Sequencing Problem
-        int jobsInfo[][] = {{4,20},{1,10},{1,40},{1,30}};
+        // int jobsInfo[][] = {{4,20},{1,10},{1,40},{1,30}};
 
-        ArrayList<Job> jobs = new ArrayList<>();
+        // ArrayList<Job> jobs = new ArrayList<>();
 
-        for(int i=0; i<jobsInfo.length; i++){
-            jobs.add(new Job(i, jobsInfo[i][0], jobsInfo[i][1]));
-        }
-        Collections.sort(jobs, (obj1, obj2) -> obj2.profit-obj1.profit);
-        /*Descending Order of sorting because of obj2.profit-obj1.profit if it was reverse than
-         it would sort in an ascending order
-        */
+        // for(int i=0; i<jobsInfo.length; i++){
+        //     jobs.add(new Job(i, jobsInfo[i][0], jobsInfo[i][1]));
+        // }
+        // Collections.sort(jobs, (obj1, obj2) -> obj2.profit-obj1.profit);
+        // /*Descending Order of sorting because of obj2.profit-obj1.profit if it was reverse than
+        //  it would sort in an ascending order
+        // */
 
-        ArrayList<Integer> seq = new ArrayList<>();
+        // ArrayList<Integer> seq = new ArrayList<>();
 
-        int time = 0;
-        for(int i=0; i<jobs.size(); i++){
-            Job curr = jobs.get(i);
-            if(curr.deadline > time){
-                seq.add(curr.id);
-                time++;
+        // int time = 0;
+        // for(int i=0; i<jobs.size(); i++){
+        //     Job curr = jobs.get(i);
+        //     if(curr.deadline > time){
+        //         seq.add(curr.id);
+        //         time++;
+        //     }
+        // }
+        // //Print Seq
+        // System.out.println("Max Jobs:- " +seq.size());
+        // for(int i=0; i<seq.size(); i++){
+        //     System.out.print(seq.get(i)+ " ");
+        // }
+        // System.out.println();
+
+        //Chocolate Problem
+        int n=4, m=6;
+        Integer costVer[] = {2,1,3,1,4}; //m-1
+        Integer costHor[] = {4,1,2}; //n-1
+
+        Arrays.sort(costVer, Collections.reverseOrder());
+        Arrays.sort(costHor, Collections.reverseOrder());
+
+        int h=0, v=0;
+        int hp=1, vp=1;
+        int cost=0;
+
+        while(h <costHor.length && v<costVer.length){
+            if(costVer[v] <= costHor[h]){ //Vertical Cost
+                cost += (costHor[h] * vp);
+                hp++;
+                h++;
+            } else {
+                cost += (costVer[v] * hp);
+                vp++;
+                v++;
             }
         }
-        //Print Seq
-        System.out.println("Max Jobs:- " +seq.size());
-        for(int i=0; i<seq.size(); i++){
-            System.out.print(seq.get(i)+ " ");
+
+        while(h < costHor.length){
+            cost += (costHor[h] * vp);
+            hp++;
+            h++;
         }
-        System.out.println();
+
+        while (v < costVer.length) {
+            cost += (costVer[v] * hp);
+            vp++;
+            v++;
+        }
+
+        System.out.println("Minimum Cost is:- "+cost);
     }
 }
